@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A92369532CD77989007FA4E4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A92369522CD77989007FA4E4 /* FirebaseAuth */; };
+		A92369552CD77996007FA4E4 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = A92369542CD77996007FA4E4 /* FirebaseCore */; };
+		A92369932CD779A8007FA4E4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A92369922CD779A8007FA4E4 /* FirebaseDatabase */; };
+		A92369952CD779AD007FA4E4 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = A92369942CD779AD007FA4E4 /* FirebaseFunctions */; };
+		A92369972CD779B9007FA4E4 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = A92369962CD779B9007FA4E4 /* FirebaseInstallations */; };
+		A92369992CD779B9007FA4E4 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A92369982CD779B9007FA4E4 /* FirebaseMessaging */; };
+		A923699B2CD779C6007FA4E4 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = A923699A2CD779C6007FA4E4 /* FirebaseRemoteConfig */; };
+		A923699D2CD779C6007FA4E4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A923699C2CD779C6007FA4E4 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A923692C2CD77232007FA4E4 /* atehere-manager-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "atehere-manager-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +34,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92369992CD779B9007FA4E4 /* FirebaseMessaging in Frameworks */,
+				A92369932CD779A8007FA4E4 /* FirebaseDatabase in Frameworks */,
+				A92369552CD77996007FA4E4 /* FirebaseCore in Frameworks */,
+				A923699B2CD779C6007FA4E4 /* FirebaseRemoteConfig in Frameworks */,
+				A92369532CD77989007FA4E4 /* FirebaseAuth in Frameworks */,
+				A923699D2CD779C6007FA4E4 /* FirebaseStorage in Frameworks */,
+				A92369952CD779AD007FA4E4 /* FirebaseFunctions in Frameworks */,
+				A92369972CD779B9007FA4E4 /* FirebaseInstallations in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				A923692E2CD77232007FA4E4 /* atehere-manager-swiftui */,
+				A92369512CD77989007FA4E4 /* Frameworks */,
 				A923692D2CD77232007FA4E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +63,13 @@
 				A923692C2CD77232007FA4E4 /* atehere-manager-swiftui.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A92369512CD77989007FA4E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +92,14 @@
 			);
 			name = "atehere-manager-swiftui";
 			packageProductDependencies = (
+				A92369522CD77989007FA4E4 /* FirebaseAuth */,
+				A92369542CD77996007FA4E4 /* FirebaseCore */,
+				A92369922CD779A8007FA4E4 /* FirebaseDatabase */,
+				A92369942CD779AD007FA4E4 /* FirebaseFunctions */,
+				A92369962CD779B9007FA4E4 /* FirebaseInstallations */,
+				A92369982CD779B9007FA4E4 /* FirebaseMessaging */,
+				A923699A2CD779C6007FA4E4 /* FirebaseRemoteConfig */,
+				A923699C2CD779C6007FA4E4 /* FirebaseStorage */,
 			);
 			productName = "atehere-manager-swiftui";
 			productReference = A923692C2CD77232007FA4E4 /* atehere-manager-swiftui.app */;
@@ -94,6 +129,9 @@
 			);
 			mainGroup = A92369232CD77232007FA4E4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A923692D2CD77232007FA4E4 /* Products */;
 			projectDirPath = "";
@@ -252,6 +290,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"atehere-manager-swiftui/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -265,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "media.dorduncuboyut.atehere-manager-swiftui";
+				PRODUCT_BUNDLE_IDENTIFIER = media.dorduncuboyut.atehere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -281,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"atehere-manager-swiftui/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -294,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "media.dorduncuboyut.atehere-manager-swiftui";
+				PRODUCT_BUNDLE_IDENTIFIER = media.dorduncuboyut.atehere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -324,6 +364,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A92369522CD77989007FA4E4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A92369542CD77996007FA4E4 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		A92369922CD779A8007FA4E4 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		A92369942CD779AD007FA4E4 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		A92369962CD779B9007FA4E4 /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseInstallations;
+		};
+		A92369982CD779B9007FA4E4 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		A923699A2CD779C6007FA4E4 /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		A923699C2CD779C6007FA4E4 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92369502CD7797B007FA4E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A92369242CD77232007FA4E4 /* Project object */;
 }
