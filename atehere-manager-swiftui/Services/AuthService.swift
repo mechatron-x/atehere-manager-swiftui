@@ -16,7 +16,6 @@ class AuthService {
 
 
     func login(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
-        print("Login is called")
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(.failure(error))
@@ -43,10 +42,10 @@ class AuthService {
 
 
     private func storeUserCredentials(user: FirebaseAuth.User) {
-        print("Store user credentials is called")
+        //print("Store user credentials is called")
         user.getIDToken { token, error in
             if let token = token {
-                print(token)
+                //print(token)
                 self.storeValue(token, key: "idToken")
             }
         }
@@ -72,12 +71,11 @@ class AuthService {
     }
 
     func getIdToken(completion: @escaping (String?) -> Void) {
-        print("Get id token is called")
+        //print("Get id token is called")
         if let token = getValue(forKey: "idToken"), isTokenValid(token) {
-            print(token)
+            //print(token)
             completion(token)
         } else {
-            // Token is expired or not found, fetch a new one
             if let user = Auth.auth().currentUser {
                 user.getIDTokenForcingRefresh(true) { [weak self] idToken, error in
                     if let idToken = idToken {
@@ -143,7 +141,7 @@ class AuthService {
     }
     
     private func isTokenValid(_ token: String) -> Bool {
-        print("Is token Valid function is called")
+        //print("Is token Valid function is called")
         let segments = token.split(separator: ".")
         guard segments.count == 3 else { return false }
         
@@ -158,8 +156,8 @@ class AuthService {
         guard let exp = payload["exp"] as? TimeInterval else { return false }
         
         let currentTime = Date().timeIntervalSince1970
-        print(exp)
-        print(currentTime)
+        //print(exp)
+        //print(currentTime)
         return exp > currentTime
     }
         

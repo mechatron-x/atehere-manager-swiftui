@@ -122,7 +122,7 @@ struct LoginView: View {
                     
         
                 }
-                .padding()
+    
                 .onReceive(loginViewModel.$isAuthenticated) { isAuthenticated in
                                     if isAuthenticated {
                                         navigateToRoot = true
