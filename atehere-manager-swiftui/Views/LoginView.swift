@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @StateObject var loginViewModel = LoginViewModel()
     @State private var isPasswordVisible = false
-    @State private var navigateToRoot = false
+    @State private var navigateToProfile = false
     
     var body: some View {
         NavigationStack {
@@ -122,14 +122,14 @@ struct LoginView: View {
                     
         
                 }
-                .padding()
+    
                 .onReceive(loginViewModel.$isAuthenticated) { isAuthenticated in
                                     if isAuthenticated {
-                                        navigateToRoot = true
+                                        navigateToProfile = true
                                     }
                                 }
 
-                NavigationLink(destination: RootView(), isActive: $navigateToRoot) {
+                NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
                     EmptyView()
                 }
             }
