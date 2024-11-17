@@ -129,7 +129,7 @@ struct LoginView: View {
                                     }
                                 }
 
-                NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
+                NavigationLink(destination: RestaurantListView(), isActive: $navigateToProfile) {
                     EmptyView()
                 }
             }

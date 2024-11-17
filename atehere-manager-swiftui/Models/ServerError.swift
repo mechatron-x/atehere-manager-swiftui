@@ -11,7 +11,7 @@ struct ServerError: Decodable {
     let status: Int
     let code: String
     let message: String
-    let createdAt: String
+    let createdAt: String?
 
     enum CodingKeys: String, CodingKey {
         case status
