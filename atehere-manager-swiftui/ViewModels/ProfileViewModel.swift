@@ -38,7 +38,7 @@ class ProfileViewModel: ObservableObject {
     }
 
     private func performProfileRequest(with idToken: String) {
-        guard let url = URL(string: "\(Config.baseURL)/api/v1/manager/profile") else {
+        guard let url = URL(string: "\(Config.baseURL)/api/v1/managers") else {
             DispatchQueue.main.async {
                 self.errorMessage = "Invalid URL."
                 self.isLoading = false
@@ -104,7 +104,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     private func performUpdateProfileRequest(with idToken: String, profile: ManagerProfile) {
-        guard let url = URL(string: "\(Config.baseURL)/api/v1/manager/profile") else {
+        guard let url = URL(string: "\(Config.baseURL)/api/v1/managers/profile") else {
             DispatchQueue.main.async {
                 self.errorMessage = "Invalid URL."
                 self.isLoading = false
@@ -119,6 +119,8 @@ class ProfileViewModel: ObservableObject {
             }
             return
         }
+        
+
 
         var request = URLRequest(url: url)
         request.httpMethod = "PATCH"
@@ -130,6 +132,11 @@ class ProfileViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.isLoading = false
 
+                
+                if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                                print("Response Data from Server: \(responseString)")
+                            }
+                
                 if let error = error {
                     self.errorMessage = "Network error: \(error.localizedDescription)"
                     return
