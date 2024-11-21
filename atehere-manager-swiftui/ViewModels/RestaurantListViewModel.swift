@@ -34,7 +34,7 @@ class RestaurantListViewModel: ObservableObject {
     }
 
     private func performFetchRestaurantsRequest(with idToken: String, completion: (() -> Void)? = nil) {
-        guard let url = URL(string: "\(Config.baseURL)/api/v1/manager/restaurants") else {
+        guard let url = URL(string: "\(Config.baseURL)/api/v1/managers/restaurants") else {
             self.errorMessage = "Invalid URL."
             self.isLoading = false
             return

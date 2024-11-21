@@ -104,7 +104,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     private func performUpdateProfileRequest(with idToken: String, profile: ManagerProfile) {
-        guard let url = URL(string: "\(Config.baseURL)/api/v1/managers/profile") else {
+        guard let url = URL(string: "\(Config.baseURL)/api/v1/managers") else {
             DispatchQueue.main.async {
                 self.errorMessage = "Invalid URL."
                 self.isLoading = false
