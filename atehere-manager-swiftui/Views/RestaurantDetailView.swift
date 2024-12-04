@@ -15,9 +15,10 @@ struct RestaurantDetailView: View {
             VStack(alignment: .leading) {
                 // Restaurant Image
                 AsyncImage(url: URL(string: restaurant.imageUrl)) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(height: 500)
                 } placeholder: {
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
