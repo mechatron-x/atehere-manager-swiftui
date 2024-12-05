@@ -8,22 +8,34 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
     @StateObject var profileViewModel = ProfileViewModel()
     @State private var isPasswordVisible = false
-    
+    var closeProfile: () -> Void
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 VStack {
-                    Text("Profile")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.leading)
-                        .padding(.top, 40)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    // Header with Back Button
+                    HStack {
+                        Button(action: closeProfile) {
+                            Image(systemName: "chevron.left")
+                                .imageScale(.large)
+                                .padding()
+                        }
+                        Spacer()
+                        Text("Profile")
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(.trailing)
+                    }
+                    .padding(.top, 40)
+                    .background(Color(.systemBackground))
                     
+
                     Spacer()
-                    
+
                     if profileViewModel.isLoading {
                         // Loading Indicator
                         ProgressView()
@@ -39,14 +51,15 @@ struct ProfileView: View {
                         Group {
                             HStack {
                                 Text("Manager Information")
-                                    .frame(alignment: .leading)
                                     .font(.title)
                                     .bold()
                                     .padding(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .center)
                                 
                                 Spacer()
                             }
                             Spacer()
+
                             // Email Field
                             HStack {
                                 Image(systemName: "envelope.fill")
@@ -62,7 +75,7 @@ struct ProfileView: View {
                             .background(Color.gray.opacity(0.2))
                             .cornerRadius(10)
                             .padding(.horizontal, geometry.size.width > 600 ? 100 : 16)
-                            
+
                             // Full Name Field
                             HStack {
                                 Image(systemName: "person.fill")
@@ -90,7 +103,7 @@ struct ProfileView: View {
                             .cornerRadius(10)
                             .padding(.horizontal, geometry.size.width > 600 ? 100 : 16)
                         }
-                        
+
                         // Phone Number Field
                         HStack {
                             Image(systemName: "phone.fill")
@@ -110,7 +123,6 @@ struct ProfileView: View {
                                     Text(phoneNumber)
                                         .foregroundColor(.black)
                                 }
-                                
                             }
                             Spacer()
                         }
@@ -119,9 +131,9 @@ struct ProfileView: View {
                         .background(profileViewModel.isEditing ? Color.clear : Color.gray.opacity(0.2))
                         .cornerRadius(10)
                         .padding(.horizontal, geometry.size.width > 600 ? 100 : 16)
-                        
+
                         Spacer()
-                        
+
                         // Edit Button
                         Button(action: {
                             if profileViewModel.isEditing {
@@ -144,7 +156,7 @@ struct ProfileView: View {
                         }
                         .padding(.horizontal, geometry.size.width > 600 ? 100 : 16)
                         .padding()
-                        
+
                         // Logout Button
                         Button(action: {
                             profileViewModel.logout()
@@ -173,15 +185,14 @@ struct ProfileView: View {
                     profileViewModel.fetchProfile()
                 }
                 .navigationBarBackButtonHidden(true)
-                
             }
-            
         }
-        
     }
-        
 }
 
+
 #Preview {
-    ProfileView()
+    ProfileView(closeProfile: {
+        print("Profile view closed")
+    })
 }

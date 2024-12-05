@@ -45,7 +45,7 @@ class AuthService {
         //print("Store user credentials is called")
         user.getIDToken { token, error in
             if let token = token {
-                //print(token)
+                print(token)
                 self.storeValue(token, key: "idToken")
             }
         }

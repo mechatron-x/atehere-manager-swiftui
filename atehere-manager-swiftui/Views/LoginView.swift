@@ -129,7 +129,7 @@ struct LoginView: View {
                                     }
                                 }
 
-                NavigationLink(destination: ProfileView(), isActive: $navigateToProfile) {
+                NavigationLink(destination: RestaurantListView(), isActive: $navigateToProfile) {
                     EmptyView()
                 }
             }
@@ -139,9 +139,6 @@ struct LoginView: View {
 }
 
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
+#Preview {
+    LoginView()
 }
-
