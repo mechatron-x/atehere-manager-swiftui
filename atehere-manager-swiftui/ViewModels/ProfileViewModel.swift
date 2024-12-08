@@ -134,7 +134,7 @@ class ProfileViewModel: ObservableObject {
 
                 
                 if let data = data, let responseString = String(data: data, encoding: .utf8) {
-                                print("Response Data from Server: \(responseString)")
+                                //print("Response Data from Server: \(responseString)")
                             }
                 
                 if let error = error {
