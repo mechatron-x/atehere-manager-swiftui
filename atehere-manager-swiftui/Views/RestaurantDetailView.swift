@@ -69,9 +69,11 @@ struct RestaurantDetailView: View {
                         .padding(.top, 8)
 
                     ForEach(restaurant.tables) { table in
-                        Text("- \(table.name)")
-                            .font(.subheadline)
-                    }
+                                        NavigationLink(destination: RestaurantTableDetailView(tableID: table.id, tableName: table.name)) {
+                                            Text("- \(table.name)")
+                                                .font(.subheadline)
+                                        }
+                                    }
 
                     // Updates Section
                     Divider()
