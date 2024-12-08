@@ -23,7 +23,7 @@ class LoginViewModel: ObservableObject {
     func login() {
         isLoading = true
         errorMessage = nil
-        print("Login ViewModel: Login method called")
+        //print("Login ViewModel: Login method called")
         authService.login(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false

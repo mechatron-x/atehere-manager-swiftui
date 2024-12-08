@@ -9,16 +9,22 @@ import SwiftUI
 
 struct RestaurantDetailView: View {
     let restaurant: Restaurant
+    @StateObject private var viewModel: RestaurantDetailViewModel
+
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
+        _viewModel = StateObject(wrappedValue: RestaurantDetailViewModel(restaurantID: restaurant.id))
+    }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 // Restaurant Image
                 AsyncImage(url: URL(string: restaurant.imageUrl)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(height: 500)
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 500)
                 } placeholder: {
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
@@ -66,6 +72,39 @@ struct RestaurantDetailView: View {
                         Text("- \(table.name)")
                             .font(.subheadline)
                     }
+
+                    // Updates Section
+                    Divider()
+                        .padding(.vertical)
+
+                    Text("Updates:")
+                        .font(.headline)
+
+                    if viewModel.isLoading {
+                        ProgressView("Loading updates...")
+                            .padding(.top, 8)
+                    } else if let errorMessage = viewModel.errorMessage {
+                        Text("Error: \(errorMessage)")
+                            .foregroundColor(.red)
+                            .padding(.top, 8)
+                    } else if viewModel.updates.isEmpty {
+                        Text("No updates available.")
+                            .foregroundColor(.gray)
+                            .padding(.top, 8)
+                    } else {
+                        ForEach(viewModel.updates) { update in
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(update.message)
+                                    .font(.headline)
+                                Text("Table: \(update.tableName)")
+                                    .font(.subheadline)
+                                Text("Time: \(update.invokeTime, formatter: dateFormatter)")
+                                    .font(.caption)
+                            }
+                            .padding(.vertical, 4)
+                            Divider()
+                        }
+                    }
                 }
                 .padding()
             }
@@ -75,4 +114,9 @@ struct RestaurantDetailView: View {
     }
 }
 
-
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .short
+    formatter.timeStyle = .short
+    return formatter
+}()

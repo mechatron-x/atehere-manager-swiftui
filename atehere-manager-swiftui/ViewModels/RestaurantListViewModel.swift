@@ -66,7 +66,7 @@ class RestaurantListViewModel: ObservableObject {
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let payload = try decoder.decode(ResponsePayload<RestaurantList>.self, from: data)
-                    print(payload)
+                    //print(payload)
                     
                     if let payloadData = payload.data {
                         let normalizedRestaurants = payloadData.restaurants.map { restaurant -> Restaurant in
@@ -82,7 +82,7 @@ class RestaurantListViewModel: ObservableObject {
                         self?.errorMessage = "Unexpected response format."
                     }
                 } catch let decodingError {
-                    print("Decoding error: \(decodingError)")
+                    //print("Decoding error: \(decodingError)")
                     self?.errorMessage = "Failed to parse data: \(decodingError.localizedDescription)"
                 }
             }
