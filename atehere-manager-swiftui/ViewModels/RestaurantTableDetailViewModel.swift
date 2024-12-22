@@ -30,12 +30,12 @@ class RestaurantTableDetailViewModel: ObservableObject {
         isLoading = true
         errorMessage = nil
 
-        guard let url = URL(string: "\(Config.baseURL)/api/v1/tables/\(tableID)/managers/orders") else {
+        guard let url = URL(string: "\(Config.baseURL)/api/v1/tables/\(tableID)/orders?role=manager") else {
             self.errorMessage = "Invalid URL."
             self.isLoading = false
             return
         }
-
+    
         AuthService.shared.getIdToken { [weak self] token in
             DispatchQueue.main.async {
                 guard let self = self else { return }
