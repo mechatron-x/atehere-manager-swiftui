@@ -19,12 +19,11 @@ struct RestaurantDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                // Restaurant Image
                 AsyncImage(url: URL(string: restaurant.imageUrl)) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 500)
+                        .aspectRatio(16/4, contentMode: .fill)
+                        .frame(height: 250)
                 } placeholder: {
                     Rectangle()
                         .fill(Color.gray.opacity(0.3))
@@ -32,7 +31,6 @@ struct RestaurantDetailView: View {
                 .frame(maxWidth: .infinity)
                 .clipped()
 
-                // Restaurant Details
                 VStack(alignment: .leading, spacing: 8) {
                     Text(restaurant.name)
                         .font(.largeTitle)
@@ -68,12 +66,34 @@ struct RestaurantDetailView: View {
                         .font(.headline)
                         .padding(.top, 8)
 
-                    ForEach(restaurant.tables) { table in
-                        Text("- \(table.name)")
-                            .font(.subheadline)
+                    LazyVGrid(
+                        columns: Array(repeating: GridItem(.fixed(150), spacing: 16), count: 4),
+                        alignment: .listRowSeparatorLeading,
+                        spacing: 16
+                    ) {
+                        ForEach(restaurant.tables) { table in
+                            NavigationLink(destination: RestaurantTableDetailView(tableID: table.id, tableName: table.name)) {
+                                Text(table.name)
+                                ZStack {
+                                    Color("MainColor")
+                                        .opacity(0.15)
+                                        .frame(width: 150, height: 150)
+                                        .cornerRadius(8)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(Color("MainColor"), lineWidth: 7)
+                                        )
+                                    Text(table.name)
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                        .frame(width: 150, height: 150)
+                                }
+                            }
+                        }
                     }
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 8)
 
-                    // Updates Section
                     Divider()
                         .padding(.vertical)
 
@@ -109,8 +129,6 @@ struct RestaurantDetailView: View {
                 .padding()
             }
         }
-        .navigationTitle(restaurant.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
