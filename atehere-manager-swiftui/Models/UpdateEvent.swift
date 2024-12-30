@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Update: Identifiable {
+struct UpdateEvent: Identifiable {
     var id: String
     var invokeTime: Date
     var message: String
-    var tableName: String
 }

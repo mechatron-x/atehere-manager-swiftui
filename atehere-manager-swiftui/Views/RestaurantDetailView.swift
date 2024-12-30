@@ -116,8 +116,6 @@ struct RestaurantDetailView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(update.message)
                                     .font(.headline)
-                                Text("Table: \(update.tableName)")
-                                    .font(.subheadline)
                                 Text("Time: \(update.invokeTime, formatter: dateFormatter)")
                                     .font(.caption)
                             }
@@ -129,7 +127,10 @@ struct RestaurantDetailView: View {
                 .padding()
             }
         }
+
+        
     }
+    
 }
 
 private let dateFormatter: DateFormatter = {
