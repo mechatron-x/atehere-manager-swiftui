@@ -21,7 +21,7 @@ struct RestaurantRowView: View {
                 Rectangle()
                     .fill(Color.gray.opacity(0.3))
             }
-            .frame(width: 80, height: 80)
+            .frame(width: 200, height: 120)
             .cornerRadius(8)
             .clipped()
 
@@ -37,6 +37,19 @@ struct RestaurantRowView: View {
                 Text("Phone: \(restaurant.phoneNumber)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
+                
+                Text("Hours: \(restaurant.openingTime) - \(restaurant.closingTime)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                
+                HStack{
+                    Text("Working Days:")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    Text(restaurant.workingDays.joined(separator: ", "))
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
             }
         }
         .padding(.vertical, 8)
